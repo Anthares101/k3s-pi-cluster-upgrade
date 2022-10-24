@@ -18,3 +18,12 @@
     path: /var/lib/rancher/k3s/server/manifests/local-storage.yaml
     regexp: '^    storageclass.kubernetes.io/is-default-class: "true"$' 
     line: '    storageclass.kubernetes.io/is-default-class: "false"'
+
+- name: Get node token
+  become: true
+  command: cat /var/lib/rancher/k3s/server/node-token
+  register: node_token_output
+
+- name: Set node_token fact
+  set_fact:
+    node_token: "{{ node_token_output.stdout_lines[0] }}"
