@@ -1,0 +1,38 @@
+---
+- name: Upgrade Linux
+  hosts: nodes
+  gather_facts: false
+  tags: ['upgrade-linux']
+
+  roles:
+    - role: upgrade-linux
+
+- name: Upgrade K3S master
+  hosts: master
+  gather_facts: false
+  tags: ['upgrade-k3s-master']
+
+  roles:
+    - role: upgrade-k3s-master
+
+- name: Upgrade K3S workers
+  hosts: workers
+  gather_facts: false
+  tags: ['upgrade-k3s-workers']
+
+  roles:
+    - role: upgrade-k3s-workers
+
+- name: Upgrade K3S monitoring stack
+  hosts: master
+  gather_facts: false
+  tags: ['upgrade-k3s-monitoring']
+
+  collections:
+    - community.kubernetes
+  
+  environment:
+    K8S_AUTH_KUBECONFIG: /etc/rancher/k3s/k3s.yaml
+
+  roles:
+    - role: upgrade-k3s-monitoring

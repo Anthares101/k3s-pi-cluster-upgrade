@@ -1,0 +1,11 @@
+- name: Upgrade the OS (apt-get dist-upgrade)
+  become: yes
+  ansible.builtin.apt:
+    update_cache: yes
+    cache_valid_time: 3600
+    upgrade: dist
+
+- name: Check if reboot is required
+  stat:
+    path: /var/run/reboot-required
+  notify: reboot-pi
