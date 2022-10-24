@@ -10,7 +10,6 @@
       git:
         repo: https://github.com/carlosedp/cluster-monitoring.git
         dest: ~/k3s/cluster-monitoring
-        version: "{{ cluster_monitoring_version }}"
         force: yes
 
     - name: Place our templated vars.jsonnet file
