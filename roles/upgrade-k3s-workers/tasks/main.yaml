@@ -9,7 +9,7 @@
   become: true
   shell: >-
     K3S_URL=https://"{{ groups['master'][0] }}":6443
-    K3S_TOKEN=${cat /var/lib/rancher/k3s/server/token}
+    K3S_TOKEN=$(cat /var/lib/rancher/k3s/server/token)
     ~/k3s_install.sh >> ~/k3s_install_log.txt
   args:
     chdir: "~"
