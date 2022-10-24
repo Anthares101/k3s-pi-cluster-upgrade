@@ -54,3 +54,23 @@
     src: "{{ item }}"
     state: present
   loop: "{{ cluster_monitoring_files.files | sort(attribute='path') | map(attribute='path') | list }}"
+
+- name: Remove prometheus ingress
+  become: true
+  ignore_errors: yes
+  k8s:
+    state: absent
+    api_version: v1
+    kind: Ingress
+    namespace: monitoring
+    name: prometheus-k8s
+
+- name: Remove alertmanager ingress
+  become: true
+  ignore_errors: yes
+  k8s:
+    state: absent
+    api_version: v1
+    kind: Ingress
+    namespace: monitoring
+    name: alertmanager-main
