@@ -25,7 +25,7 @@
 
 - name: Upgrade K3S monitoring stack
   hosts: master
-  gather_facts: false
+  gather_facts: true
   tags: ['upgrade-k3s-monitoring']
 
   collections:
