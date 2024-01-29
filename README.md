@@ -25,7 +25,3 @@ If you only need to execute part of it you can use the next tags (The names are 
 - `upgrade-linux`
 - `upgrade-k3s-master`
 - `upgrade-k3s-workers`
-
-## Troubleshooting
-
-- If you find that the canal pods are crashing with this message in the logs: `flannel.1. Link has incompatible address` try deleting the `flannel.1` interface in all nodes: `sudo ip link delete flannel.1`.
