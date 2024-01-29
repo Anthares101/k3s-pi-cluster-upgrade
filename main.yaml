@@ -22,17 +22,3 @@
 
   roles:
     - role: upgrade-k3s-workers
-
-- name: Upgrade K3S monitoring stack
-  hosts: master
-  gather_facts: true
-  tags: ['upgrade-k3s-monitoring']
-
-  collections:
-    - community.kubernetes
-  
-  environment:
-    K8S_AUTH_KUBECONFIG: /etc/rancher/k3s/k3s.yaml
-
-  roles:
-    - role: upgrade-k3s-monitoring

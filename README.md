@@ -1,6 +1,6 @@
 # K3S Pi Cluster Upgrade
 
-The idea of this playbook is to automate upgrades of my [K3S cluster](https://github.com/anthares101/k3s-pi-cluster), including Linux, K3S and also the monitoring stack. About the applications running in the cluster, the upgrades are managed by [Keel](https://keel.sh).
+The idea of this playbook is to automate upgrades of my [K3S cluster](https://github.com/anthares101/k3s-pi-cluster), including Linux and K3S versions. About the applications running in the cluster (including monitoring), the upgrades are managed by [Keel](https://keel.sh).
 
 ## Requisites
 
@@ -25,7 +25,6 @@ If you only need to execute part of it you can use the next tags (The names are 
 - `upgrade-linux`
 - `upgrade-k3s-master`
 - `upgrade-k3s-workers`
-- `upgrade-k3s-monitoring`
 
 ## Troubleshooting
 
