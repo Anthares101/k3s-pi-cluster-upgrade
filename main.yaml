@@ -22,3 +22,11 @@
 
   roles:
     - role: upgrade-k3s-workers
+
+- name: Upgrade monitoring stack
+  hosts: master
+  gather_facts: false
+  tags: ['upgrade-monitoring']
+
+  roles:
+    - role: upgrade-monitoring
