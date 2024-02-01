@@ -6,6 +6,7 @@
     chart_ref: prometheus-community/kube-prometheus-stack
     release_namespace: monitoring
     reuse_values: true
+    reset_values: false
     atomic: true
     update_repo_cache: true
 
@@ -16,6 +17,7 @@
     chart_ref: prometheus-community/prometheus-adapter
     release_namespace: monitoring
     reuse_values: true
+    reset_values: false
     atomic: true
     update_repo_cache: true
 
@@ -26,6 +28,7 @@
     chart_ref: falcosecurity/falco
     release_namespace: falco
     reuse_values: true
+    reset_values: false
     atomic: true
     update_repo_cache: true
 
@@ -36,5 +39,6 @@
     chart_ref: falcosecurity/falco-exporter
     release_namespace: monitoring
     reuse_values: true
+    reset_values: false
     atomic: true
     update_repo_cache: true
