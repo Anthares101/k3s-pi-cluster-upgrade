@@ -26,6 +26,10 @@
 - name: Upgrade monitoring stack
   hosts: master
   gather_facts: false
+  collections:
+    - community.kubernetes
+  environment:
+    K8S_AUTH_KUBECONFIG: /etc/rancher/k3s/k3s.yaml
   tags: ['upgrade-monitoring']
 
   roles:
