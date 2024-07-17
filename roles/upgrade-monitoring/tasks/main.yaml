@@ -21,24 +21,25 @@
     atomic: true
     update_repo_cache: true
 
-- name: Upgrade Falco version
-  become: true
-  kubernetes.core.helm:
-    name: falco
-    chart_ref: falcosecurity/falco
-    release_namespace: falco
-    reuse_values: true
-    reset_values: false
-    atomic: true
-    update_repo_cache: true
+# Both Falco and Falco exporter last chart versions won't work properly so let's skip them for now
+#- name: Upgrade Falco version
+#  become: true
+#  kubernetes.core.helm:
+#    name: falco
+#    chart_ref: falcosecurity/falco
+#    release_namespace: falco
+#    reuse_values: true
+#    reset_values: false
+#    atomic: true
+#    update_repo_cache: true
 
-- name: Upgrade Falco exporter version
-  become: true
-  kubernetes.core.helm:
-    name: falco-exporter
-    chart_ref: falcosecurity/falco-exporter
-    release_namespace: monitoring
-    reuse_values: true
-    reset_values: false
-    atomic: true
-    update_repo_cache: true
+#- name: Upgrade Falco exporter version
+#  become: true
+#  kubernetes.core.helm:
+#    name: falco-exporter
+#    chart_ref: falcosecurity/falco-exporter
+#    release_namespace: monitoring
+#    reuse_values: true
+#    reset_values: false
+#    atomic: true
+#    update_repo_cache: true
