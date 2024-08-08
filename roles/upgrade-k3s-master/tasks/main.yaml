@@ -8,7 +8,7 @@
 - name: Upgrade K3s
   become: true
   shell: >-
-    ~/k3s_install.sh --disable metrics-server >> ~/k3s_install_log.txt
+    ~/k3s_install.sh --disable metrics-server --kubelet-arg 'seccomp-default=true' >> ~/k3s_install_log.txt
   args:
     chdir: "~"
 
